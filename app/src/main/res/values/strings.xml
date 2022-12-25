@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Innoreva ResourceManager</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_domain">Domain List</string>
+    <string name="menu_about">About</string>
 </resources>
