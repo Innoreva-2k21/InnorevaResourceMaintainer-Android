@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Innoreva ResourceManager</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -8,4 +8,9 @@
     <string name="menu_home">Home</string>
     <string name="menu_domain">Domain List</string>
     <string name="menu_about">About</string>
+    <string name="title_activity_domain_tabbed">DomainTabbedActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
