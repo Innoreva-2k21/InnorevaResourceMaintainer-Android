@@ -9,6 +9,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
@@ -20,9 +21,10 @@ public class DomainTabbedActivity extends AppCompatActivity {
 
     TabLayout tab;
     ViewPager viewPager;
-    Toolbar bar;
+    ImageView bgimg;
     TextView title;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,18 +33,19 @@ public class DomainTabbedActivity extends AppCompatActivity {
 
         tab = findViewById(R.id.tab);
         viewPager = findViewById(R.id.viewPager);
-        bar = findViewById(R.id.toolbar1);
         title = findViewById(R.id.toolbar1_title);
+        bgimg = findViewById(R.id.bg_img);
 
         ViewPagerDomainAdapter adapter = new ViewPagerDomainAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
         tab.setupWithViewPager(viewPager);
 
-        bar.setTitle("");
-        setSupportActionBar(bar);
+
 
         Intent intent = getIntent();
         String domain = intent.getStringExtra("domain");
+        int bg = intent.getIntExtra("bg",R.drawable.web);
+        bgimg.setImageResource(bg);
         title.setText(domain);
 
 

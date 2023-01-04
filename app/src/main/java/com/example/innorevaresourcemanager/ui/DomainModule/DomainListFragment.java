@@ -61,20 +61,24 @@ public class DomainListFragment extends Fragment {
                 if(position==0){
                     Intent intent = new Intent(getActivity(),DomainTabbedActivity.class);
                     intent.putExtra("domain","Internet Of Things");
+                    intent.putExtra("bg",R.drawable.iot);
                     startActivity(intent);
                 }
                 else if(position==1){
                     Intent intent = new Intent(getActivity(),DomainTabbedActivity.class);
                     intent.putExtra("domain","Web Development");
+                    intent.putExtra("bg",R.drawable.web);
                     startActivity(intent);
                 }
                 else if(position==2){
                     Intent intent = new Intent(getActivity(),DomainTabbedActivity.class);
                     intent.putExtra("domain","Android Development");
+                    intent.putExtra("bg",R.drawable.app);
                     startActivity(intent);
                 }else{
                     Intent intent = new Intent(getActivity(),DomainTabbedActivity.class);
                     intent.putExtra("domain","Machine Learning");
+                    intent.putExtra("bg",R.drawable.ml);
                     startActivity(intent);
                 }
             }
