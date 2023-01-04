@@ -12,10 +12,30 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_domain"
-        android:name="com.example.innorevaresourcemanager.ui.DomainModule.DomainListFragment"
-        android:label="@string/menu_domain"
-        tools:layout="@layout/fragment_domain_list" />
+        android:id="@+id/iot_domain"
+        android:name="com.example.innorevaresourcemanager.ui.IOTModule.IOTFragment"
+        android:label="@string/internet_of_things"
+        tools:layout="@layout/fragment_i_o_t"/>
+
+    <fragment
+        android:id="@+id/web_dev_domain"
+        android:name="com.example.innorevaresourcemanager.ui.webDevModule.WebDevFragment"
+        android:label="@string/web_development"
+        tools:layout="@layout/fragment_web_dev"/>
+
+    <fragment
+        android:id="@+id/android_domain"
+        android:name="com.example.innorevaresourcemanager.ui.androidModule.androidFragment"
+        android:label="@string/android_development"
+        tools:layout="@layout/fragment_android"/>
+
+
+    <fragment
+        android:id="@+id/ml_domain"
+        android:name="com.example.innorevaresourcemanager.ui.MLModule.MLFragment"
+        android:label="@string/machine_learning"
+        tools:layout="@layout/fragment_m_l"/>
+
 
     <fragment
         android:id="@+id/nav_about"

@@ -13,4 +13,8 @@
     <string name="tab_text_2">Tab 2</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="internet_of_things">Internet of Things</string>
+    <string name="web_development">Web Development</string>
+    <string name="android_development">Android Development</string>
+    <string name="machine_learning">Machine Learning</string>
 </resources>

@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationView navigationView = binding.navView;
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_domain, R.id.nav_about)
+                R.id.nav_home, R.id.iot_domain, R.id.web_dev_domain, R.id.android_domain, R.id.ml_domain, R.id.nav_about)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_drawer);
