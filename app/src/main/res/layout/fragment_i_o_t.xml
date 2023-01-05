@@ -8,7 +8,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="170dp">
+        android:layout_height="190dp">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/bg_img"
@@ -24,11 +24,19 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_marginLeft="20dp"
-            android:layout_marginBottom="20dp"
-            android:fontFamily="monospace"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/archivo"
             android:text="Internet of Things"
             android:textColor="#000000"
             android:textSize="24sp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/back_btn_iot"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"/>
 
     </FrameLayout>
 
