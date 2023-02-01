@@ -3,29 +3,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+    <group
+        android:id="@+id/menu_home"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
             android:title="@string/menu_home" />
+    </group>
 
-        <item
-            android:id="@+id/iot_domain"
-            android:title="@string/internet_of_things" />
+    <item android:title="@string/menu_domain">
+        <menu>
+            <group
+                android:id="@+id/menu_domains"
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/iot_domain"
+                    android:title="@string/internet_of_things" />
 
-        <item
-            android:id="@+id/web_dev_domain"
-            android:title="@string/web_development" />
+                <item
+                    android:id="@+id/web_dev_domain"
+                    android:title="@string/web_development" />
 
-        <item
-            android:id="@+id/android_domain"
-            android:title="@string/android_development" />
+                <item
+                    android:id="@+id/android_domain"
+                    android:title="@string/android_development" />
 
-        <item
-            android:id="@+id/ml_domain"
-            android:title="@string/machine_learning" />
+                <item
+                    android:id="@+id/ml_domain"
+                    android:title="@string/machine_learning" />
+            </group>
+        </menu>
+    </item>
 
+    <group
+        android:id="@+id/menu_about"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/nav_about"
             android:title="@string/menu_about" />
     </group>
+
 </menu>

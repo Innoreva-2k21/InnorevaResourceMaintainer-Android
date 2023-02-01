@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.innorevaresourcemanager.MainActivity;
+import com.example.innorevaresourcemanager.R;
 import com.example.innorevaresourcemanager.databinding.FragmentHomeBinding;
 import com.example.innorevaresourcemanager.ui.HomeModule.adapters.EventsAdapter;
 import com.example.innorevaresourcemanager.ui.HomeModule.models.UpcomingModel;
@@ -63,6 +64,7 @@ public class HomeFragment extends Fragment {
         binding.upcomingRv.setAdapter(adapter);
 
         binding.searchTv.setOnClickListener(View -> displaySearchDialog());
+        handleEventButtons();
 
     }
 
@@ -76,5 +78,26 @@ public class HomeFragment extends Fragment {
         imageList.add(new SlideModel("https://bit.ly/2BteuF2", "Title", ScaleTypes.FIT));
         imageList.add(new SlideModel("https://bit.ly/3fLJf72", "Title", ScaleTypes.FIT));
         binding.imageSlider.setImageList(imageList);
+    }
+
+    private void handleEventButtons() {
+        binding.allBtn.setOnClickListener(View -> {
+            clearAllSelections();
+            binding.allBtn.setBackgroundColor(this.getResources().getColor(R.color.dark_blue));
+        });
+        binding.upcomingBtn.setOnClickListener(View -> {
+            clearAllSelections();
+            binding.upcomingBtn.setBackgroundColor(this.getResources().getColor(R.color.dark_blue));
+        });
+        binding.pastBtn.setOnClickListener(View -> {
+            clearAllSelections();
+            binding.pastBtn.setBackgroundColor(this.getResources().getColor(R.color.dark_blue));
+        });
+    }
+
+    private void clearAllSelections() {
+        binding.allBtn.setBackgroundColor(this.getResources().getColor(R.color.denim_blue));
+        binding.upcomingBtn.setBackgroundColor(this.getResources().getColor(R.color.denim_blue));
+        binding.pastBtn.setBackgroundColor(this.getResources().getColor(R.color.denim_blue));
     }
 }
