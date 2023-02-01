@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <color name="dark_blue">#0878BA</color>
+    <color name="denim_blue">#6DC2F4</color>
+    <color name="denim_blue_light">#8FCEF3</color>
+    <color name="blue_tint">#4061BDF1</color>
+    <color name="bg_tint">#1A97D0F1</color>
+    <color name="grey">#808080</color>
+
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>

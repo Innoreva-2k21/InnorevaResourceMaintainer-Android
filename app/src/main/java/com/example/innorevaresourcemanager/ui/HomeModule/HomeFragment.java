@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.innorevaresourcemanager.databinding.FragmentHomeBinding;
-import com.example.innorevaresourcemanager.ui.HomeModule.adapters.UpcomingAdapter;
+import com.example.innorevaresourcemanager.ui.HomeModule.adapters.EventsAdapter;
 import com.example.innorevaresourcemanager.ui.HomeModule.models.UpcomingModel;
 
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ import java.util.List;
 
 public class HomeFragment extends Fragment {
     FragmentHomeBinding binding;
-    UpcomingAdapter adapter;
+    EventsAdapter adapter;
     List<UpcomingModel> list;
 
 
@@ -52,9 +52,13 @@ public class HomeFragment extends Fragment {
         list.add(new UpcomingModel("","Event1","event", "1"));
         list.add(new UpcomingModel("","Event1","event", "1"));
         list.add(new UpcomingModel("","Event1","event", "1"));
-        adapter = new UpcomingAdapter(getContext(), list);
+        list.add(new UpcomingModel("","Event1","event", "1"));
+        list.add(new UpcomingModel("","Event1","event", "1"));
+        list.add(new UpcomingModel("","Event1","event", "1"));
 
-        binding.upcomingRv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        adapter = new EventsAdapter(getContext(), list);
+
+        binding.upcomingRv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         binding.upcomingRv.setAdapter(adapter);
 
     }

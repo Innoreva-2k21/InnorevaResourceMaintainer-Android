@@ -13,26 +13,26 @@ import com.example.innorevaresourcemanager.ui.HomeModule.models.UpcomingModel;
 
 import java.util.List;
 
-public class UpcomingAdapter extends RecyclerView.Adapter<UpcomingAdapter.viewHolder> {
+public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.viewHolder> {
 
     Context context;
     List<UpcomingModel> list;
 
-    public UpcomingAdapter(Context context, List<UpcomingModel> list) {
+    public EventsAdapter(Context context, List<UpcomingModel> list) {
         this.context = context;
         this.list = list;
     }
 
     @NonNull
     @Override
-    public UpcomingAdapter.viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(context).inflate(R.layout.upcoming_card_item,parent,false);
+    public EventsAdapter.viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view= LayoutInflater.from(context).inflate(R.layout.event_card_item,parent,false);
 
         return new viewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull UpcomingAdapter.viewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull EventsAdapter.viewHolder holder, int position) {
 
     }
 
