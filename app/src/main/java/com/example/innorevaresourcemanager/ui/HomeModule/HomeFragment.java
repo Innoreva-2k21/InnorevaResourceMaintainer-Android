@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.example.innorevaresourcemanager.MainActivity;
 import com.example.innorevaresourcemanager.databinding.FragmentHomeBinding;
 import com.example.innorevaresourcemanager.ui.HomeModule.adapters.EventsAdapter;
 import com.example.innorevaresourcemanager.ui.HomeModule.models.UpcomingModel;
@@ -61,6 +62,12 @@ public class HomeFragment extends Fragment {
         binding.upcomingRv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         binding.upcomingRv.setAdapter(adapter);
 
+        binding.searchTv.setOnClickListener(View -> displaySearchDialog());
+
+    }
+
+    private void displaySearchDialog() {
+        new SearchBottomSheet(requireContext()).show();
     }
 
     private void setBanner() {
