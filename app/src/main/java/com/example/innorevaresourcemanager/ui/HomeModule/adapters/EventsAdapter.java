@@ -1,9 +1,7 @@
 package com.example.innorevaresourcemanager.ui.HomeModule.adapters;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +10,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.innorevaresourcemanager.MainActivity;
 import com.example.innorevaresourcemanager.R;
 import com.example.innorevaresourcemanager.ui.HomeModule.EventDetailsActivity;
-import com.example.innorevaresourcemanager.ui.HomeModule.models.UpcomingModel;
+import com.example.innorevaresourcemanager.ui.HomeModule.models.EventModel;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.List;
@@ -23,9 +20,9 @@ import java.util.List;
 public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.viewHolder> {
 
     Context context;
-    List<UpcomingModel> list;
+    List<EventModel> list;
 
-    public EventsAdapter(Context context, List<UpcomingModel> list) {
+    public EventsAdapter(Context context, List<EventModel> list) {
         this.context = context;
         this.list = list;
     }

@@ -16,7 +16,7 @@ import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.innorevaresourcemanager.R;
 import com.example.innorevaresourcemanager.databinding.FragmentHomeBinding;
 import com.example.innorevaresourcemanager.ui.HomeModule.adapters.EventsAdapter;
-import com.example.innorevaresourcemanager.ui.HomeModule.models.UpcomingModel;
+import com.example.innorevaresourcemanager.ui.HomeModule.models.EventModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,7 @@ import java.util.List;
 public class HomeFragment extends Fragment {
     FragmentHomeBinding binding;
     EventsAdapter adapter;
-    List<UpcomingModel> list;
+    List<EventModel> list;
 
 
     public HomeFragment() {
@@ -50,12 +50,12 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         setBanner();
 
-        list.add(new UpcomingModel("","Event1","event", "1"));
-        list.add(new UpcomingModel("","Event1","event", "1"));
-        list.add(new UpcomingModel("","Event1","event", "1"));
-        list.add(new UpcomingModel("","Event1","event", "1"));
-        list.add(new UpcomingModel("","Event1","event", "1"));
-        list.add(new UpcomingModel("","Event1","event", "1"));
+        list.add(new EventModel("","Event1","event", "1"));
+        list.add(new EventModel("","Event1","event", "1"));
+        list.add(new EventModel("","Event1","event", "1"));
+        list.add(new EventModel("","Event1","event", "1"));
+        list.add(new EventModel("","Event1","event", "1"));
+        list.add(new EventModel("","Event1","event", "1"));
 
         adapter = new EventsAdapter(getContext(), list);
 

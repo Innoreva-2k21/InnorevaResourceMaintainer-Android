@@ -1,12 +1,12 @@
 package com.example.innorevaresourcemanager.ui.HomeModule.models;
 
-public class UpcomingModel {
+public class EventModel {
     String id, url, title, description;
 
-    public UpcomingModel() {
+    public EventModel() {
     }
 
-    public UpcomingModel(String id, String url, String title, String description) {
+    public EventModel(String id, String url, String title, String description) {
         this.id = id;
         this.url = url;
         this.title = title;
