@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
-import com.example.innorevaresourcemanager.MainActivity;
 import com.example.innorevaresourcemanager.R;
 import com.example.innorevaresourcemanager.databinding.FragmentHomeBinding;
 import com.example.innorevaresourcemanager.ui.HomeModule.adapters.EventsAdapter;

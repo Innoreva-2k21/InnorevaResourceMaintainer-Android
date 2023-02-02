@@ -40,12 +40,7 @@ public class WebDevFragment extends Fragment {
         adapter= new ViewPagerDomainAdapter(getChildFragmentManager());
         binding.viewPager.setAdapter(adapter);
         binding.tab.setupWithViewPager(binding.viewPager);
-        binding.backBtnWeb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getActivity().onBackPressed();
-            }
-        });
+        binding.menuBtnWeb.setOnClickListener(view1 -> ((MainActivity) requireActivity()).openDrawer());
     }
 
     @Override

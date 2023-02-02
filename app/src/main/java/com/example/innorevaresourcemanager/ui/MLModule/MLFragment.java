@@ -40,12 +40,7 @@ public class MLFragment extends Fragment {
         adapter= new ViewPagerDomainAdapter(getChildFragmentManager());
         binding.viewPager.setAdapter(adapter);
         binding.tab.setupWithViewPager(binding.viewPager);
-        binding.backBtnMl.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getActivity().onBackPressed();
-            }
-        });
+        binding.menuBtnMl.setOnClickListener(view1 -> ((MainActivity) requireActivity()).openDrawer());
     }
 
     @Override

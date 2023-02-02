@@ -13,9 +13,12 @@ import android.os.Bundle;
 import com.example.innorevaresourcemanager.databinding.ActivityMainBinding;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
     private AppBarConfiguration mAppBarConfiguration;
+    private NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +41,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_drawer);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public void openDrawer(){
+        Objects.requireNonNull(mAppBarConfiguration.getOpenableLayout()).open();
     }
 }

@@ -39,12 +39,7 @@ public class androidFragment extends Fragment {
         adapter= new ViewPagerDomainAdapter(getChildFragmentManager());
         binding.viewPager.setAdapter(adapter);
         binding.tab.setupWithViewPager(binding.viewPager);
-        binding.backBtnApp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getActivity().onBackPressed();
-            }
-        });
+        binding.menuBtnApp.setOnClickListener(view1 -> ((MainActivity) requireActivity()).openDrawer());
     }
 
     @Override

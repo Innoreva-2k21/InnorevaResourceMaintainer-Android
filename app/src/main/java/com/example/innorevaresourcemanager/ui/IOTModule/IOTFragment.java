@@ -17,6 +17,8 @@ import com.example.innorevaresourcemanager.MainActivity;
 import com.example.innorevaresourcemanager.databinding.FragmentIOTBinding;
 import com.example.innorevaresourcemanager.ui.DomainModule.ViewPagerDomainAdapter;
 
+import java.util.Objects;
+
 public class IOTFragment extends Fragment {
     FragmentIOTBinding binding;
     ViewPagerDomainAdapter adapter;
@@ -38,12 +40,7 @@ public class IOTFragment extends Fragment {
         adapter= new ViewPagerDomainAdapter(getChildFragmentManager());
         binding.viewPager.setAdapter(adapter);
         binding.tab.setupWithViewPager(binding.viewPager);
-        binding.backBtnIot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getActivity().onBackPressed();
-            }
-        });
+        binding.menuBtnIot.setOnClickListener(view1 -> ((MainActivity) requireActivity()).openDrawer());
     }
 
     @Override

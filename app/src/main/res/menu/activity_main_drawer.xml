@@ -8,7 +8,8 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:title="@string/menu_home" />
+            android:title="@string/menu_home"
+            android:icon="@drawable/ic_home_24"/>
     </group>
 
     <item android:title="@string/menu_domain">
@@ -18,19 +19,23 @@
                 android:checkableBehavior="single">
                 <item
                     android:id="@+id/iot_domain"
-                    android:title="@string/internet_of_things" />
+                    android:title="@string/internet_of_things"
+                    android:icon="@drawable/ic_iot_24"/>
 
                 <item
                     android:id="@+id/web_dev_domain"
-                    android:title="@string/web_development" />
+                    android:title="@string/web_development"
+                    android:icon="@drawable/ic_web_24"/>
 
                 <item
                     android:id="@+id/android_domain"
-                    android:title="@string/android_development" />
+                    android:title="@string/android_development"
+                    android:icon="@drawable/ic_android_24"/>
 
                 <item
                     android:id="@+id/ml_domain"
-                    android:title="@string/machine_learning" />
+                    android:title="@string/machine_learning"
+                    android:icon="@drawable/ic_ml_24"/>
             </group>
         </menu>
     </item>
@@ -40,7 +45,8 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_about"
-            android:title="@string/menu_about" />
+            android:title="@string/menu_about"
+            android:icon="@drawable/ic_about_24"/>
     </group>
 
 </menu>
