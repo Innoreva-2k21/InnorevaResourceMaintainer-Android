@@ -24,7 +24,7 @@ import java.util.List;
 public class HomeFragment extends Fragment {
     FragmentHomeBinding binding;
     EventsAdapter adapter;
-    List<EventModel> list;
+    List<EventModel> eventModelList;
 
 
     public HomeFragment() {
@@ -40,7 +40,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(getLayoutInflater());
-        list= new ArrayList<>();
+        eventModelList= new ArrayList<>();
 
         return binding.getRoot();
     }
@@ -50,25 +50,21 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         setBanner();
 
-        list.add(new EventModel("","Event1","event", "1"));
-        list.add(new EventModel("","Event1","event", "1"));
-        list.add(new EventModel("","Event1","event", "1"));
-        list.add(new EventModel("","Event1","event", "1"));
-        list.add(new EventModel("","Event1","event", "1"));
-        list.add(new EventModel("","Event1","event", "1"));
+        eventModelList.add(new EventModel("1","","Innoreva Workshop","Welcome","LHC-305","04/02/2023","05-02-2023","2:30-4:00 PM",""));
+        eventModelList.add(new EventModel("1","","Innoreva Workshop","Welcome","LHC-305","04/02/2023","05-02-2023","2:30-4:00 PM",""));
+        eventModelList.add(new EventModel("1","","Innoreva Workshop","Welcome","LHC-305","04/02/2023","05-02-2023","2:30-4:00 PM",""));
+        eventModelList.add(new EventModel("1","","Innoreva Workshop","Welcome","LHC-305","04/02/2023","05-02-2023","2:30-4:00 PM",""));
+        eventModelList.add(new EventModel("1","","Innoreva Workshop","Welcome","LHC-305","04/02/2023","05-02-2023","2:30-4:00 PM",""));
+        eventModelList.add(new EventModel("1","","Innoreva Workshop","Welcome","LHC-305","04/02/2023","05-02-2023","2:30-4:00 PM",""));
 
-        adapter = new EventsAdapter(getContext(), list);
+        adapter = new EventsAdapter(getContext(), eventModelList);
 
         binding.upcomingRv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         binding.upcomingRv.setAdapter(adapter);
 
-        binding.searchTv.setOnClickListener(View -> displaySearchDialog());
+        binding.searchTv.setOnClickListener(View -> new SearchBottomSheet(requireContext(),eventModelList).show());
         handleEventButtons();
 
-    }
-
-    private void displaySearchDialog() {
-        new SearchBottomSheet(requireContext()).show();
     }
 
     private void setBanner() {

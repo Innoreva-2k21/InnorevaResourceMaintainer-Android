@@ -1,18 +1,16 @@
 package com.example.innorevaresourcemanager.ui.HomeModule;
 
-import static android.content.Context.INPUT_METHOD_SERVICE;
-
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.View;
-import android.view.WindowManager;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -24,17 +22,20 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.Objects;
 
 public class SearchBottomSheet extends BottomSheetDialog {
     Context context;
     SearchBottomSheetBinding binding;
     InputMethodManager imm;
-    List<EventModel> eventModelList;
+    List<EventModel> eventModelList, filteredList;
     SearchItemAdapter adapter;
 
-    public SearchBottomSheet(@NonNull Context context) {
+    public SearchBottomSheet(@NonNull Context context, List<EventModel> eventModelList) {
         super(context);
         this.context = context;
+        this.eventModelList = eventModelList;
     }
 
     @Override
@@ -50,9 +51,7 @@ public class SearchBottomSheet extends BottomSheetDialog {
 
         binding.searchBsLayout.setMinHeight(Resources.getSystem().getDisplayMetrics().heightPixels);
         binding.backBtnSearch.setOnClickListener(View -> {
-            if(imm.isAcceptingText()){
-                imm.hideSoftInputFromWindow(binding.searchEt.getWindowToken(),0);
-            }
+            hideKeyboard();
             dismiss();
         });
 
@@ -60,21 +59,59 @@ public class SearchBottomSheet extends BottomSheetDialog {
         imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
 
+        setUpSearchBox();
         setUpRecyclerView();
     }
 
-    void setUpRecyclerView(){
-        eventModelList= new ArrayList<>();
-        eventModelList.add(new EventModel("","","",""));
-        eventModelList.add(new EventModel("","","",""));
-        eventModelList.add(new EventModel("","","",""));
-        eventModelList.add(new EventModel("","","",""));
-        eventModelList.add(new EventModel("","","",""));
-
-        adapter = new SearchItemAdapter(context, eventModelList);
+    void setUpRecyclerView() {
+        adapter = new SearchItemAdapter(context, filteredList, eventModel -> {
+            hideKeyboard();
+            Intent intent = new Intent(context, EventDetailsActivity.class);
+            intent.putExtra("id", eventModel.getId());
+            intent.putExtra("title", eventModel.getTitle());
+            context.startActivity(intent);
+            dismiss();
+        });
         binding.searchRv.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
-        binding.searchRv.addItemDecoration(new DividerItemDecoration(context,LinearLayoutManager.VERTICAL));
+        binding.searchRv.addItemDecoration(new DividerItemDecoration(context, LinearLayoutManager.VERTICAL));
         binding.searchRv.setAdapter(adapter);
+    }
 
+    private void setUpSearchBox() {
+        filteredList = new ArrayList<>();
+        binding.searchEt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                filteredList.clear();
+                for (EventModel model : eventModelList){
+                    if(model.getTitle().toLowerCase().contains(charSequence.toString().toLowerCase())){
+                        filteredList.add(model);
+                    }
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String searchText = Objects.requireNonNull(binding.searchEt.getText()).toString();
+                if(searchText.isEmpty()){
+                    filteredList.clear();
+                    adapter.notifyDataSetChanged();
+                }
+            }
+        });
+    }
+
+    public void hideKeyboard() {
+        if (imm.isAcceptingText()) {
+            imm.hideSoftInputFromWindow(binding.searchEt.getWindowToken(), 0);
+        }
     }
 }

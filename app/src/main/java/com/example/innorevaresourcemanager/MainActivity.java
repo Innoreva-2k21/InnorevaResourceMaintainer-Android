@@ -18,7 +18,6 @@ import java.util.Objects;
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
     private AppBarConfiguration mAppBarConfiguration;
-    private NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
