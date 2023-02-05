@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "67927545449",
+    "project_id": "innoreva-resource-manager",
+    "storage_bucket": "innoreva-resource-manager.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:67927545449:android:e07a66a40a13828e0434f8",
+        "android_client_info": {
+          "package_name": "com.example.innorevaresourcemanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "67927545449-d4q6at9jg785s727l12u5b6orkeaij9q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.innorevaresourcemanager",
+            "certificate_hash": "78179d5d11fe563fbcfe2adb101a5bf42bfbe6ff"
+          }
+        },
+        {
+          "client_id": "67927545449-ivacpqr0bgfr7nep7i1f3e9l4t947ops.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7FS6mMjkdNKCILqxP-3nYyY7VzZkR2Hs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "67927545449-ivacpqr0bgfr7nep7i1f3e9l4t947ops.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

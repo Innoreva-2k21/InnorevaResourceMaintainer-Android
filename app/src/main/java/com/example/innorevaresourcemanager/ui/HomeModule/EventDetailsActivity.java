@@ -6,14 +6,26 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.innorevaresourcemanager.databinding.ActivityEventDetailsBinding;
+import com.example.innorevaresourcemanager.ui.HomeModule.models.EventModel;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
 
 public class EventDetailsActivity extends AppCompatActivity {
     ActivityEventDetailsBinding binding;
+    FirebaseDatabase database;
+    DatabaseReference eventRef;
     String id, title;
+    EventModel eventModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,25 +37,14 @@ public class EventDetailsActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
-        title= intent.getStringExtra("title");
+        title = intent.getStringExtra("title");
+
+        database = FirebaseDatabase.getInstance();
+        eventRef = database.getReference("Events").child(id);
+        fetchEventData();
 
         binding.eventTitle.setText(title);
-        binding.descTv.setText("Lorem ipsum dolor sit amet consectetur adipisicing elit.\\n\n" +
-                "     Ducimus fugiat enim ratione.\\n \n" +
-                "     Voluptates consequatur eveniet excepturi ad,\\n \n" +
-                "     provident eum quae non ullam distinctio doloremque in, \\n \n" +
-                "     quaerat tempora aut incidunt harum. \\n \\n\n" +
-                "     Repudiandae deserunt cupiditate sequi voluptatum perspiciatis illum rem,\\n \n" +
-                "      amet similique modi minima neque hic quidem quam placeat eaque repellendus?\\n \n" +
-                "    Fugit aperiam laboriosam, rem necessitatibus amet quia in.\\n \\n\n" +
-                "    Commodi sequi, modi iure nostrum atque est id aperiam adipisci\\n \n" +
-                "     asperiores esse illum laborum maiores enim aut,\\n \n" +
-                "      animi magni eveniet perferendis nesciunt aspernatur,\\n \n" +
-                "       qui quibusdam amet magnam corporis eaque.\\n \\n\n" +
-                "        Doloribus, facilis sapiente atque sequi nisi corporis debitis!\\n \n" +
-                "         Aliquam voluptatum repellendus earum veniam quasi!\n" +
-                "         Lorem ipsum dolor sit amet consectetur adipisicing elit.\\n \n" +
-                "          Dicta quo at nisi et eos sunt totam eius voluptatibus ut? Quaerat.");
+        binding.descTv.setText("l");
     }
 
     @Override
@@ -53,5 +54,25 @@ public class EventDetailsActivity extends AppCompatActivity {
             super.onBackPressed();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    void fetchEventData() {
+        eventRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                eventModel = snapshot.getValue(EventModel.class);
+                Glide.with(getApplicationContext()).load(eventModel.getImageUrl()).into(binding.eventImg);
+                binding.descTv.setText(eventModel.getDescription());
+                binding.eventVenueDetails.setText(eventModel.getVenue());
+                binding.startsOnTv.setText(eventModel.getStartDate());
+                binding.endsOnTv.setText(eventModel.getEndDate());
+                binding.timeTv.setText(eventModel.getTime());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(getApplicationContext(), "Something went wrong!", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

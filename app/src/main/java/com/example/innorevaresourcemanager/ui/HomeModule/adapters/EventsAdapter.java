@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.innorevaresourcemanager.R;
 import com.example.innorevaresourcemanager.ui.HomeModule.EventDetailsActivity;
 import com.example.innorevaresourcemanager.ui.HomeModule.models.EventModel;
@@ -43,6 +44,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.viewHolder
         setItemData(holder, position);
         holder.viewDetailsBtn.setOnClickListener(View -> viewDetails(position));
         holder.registerBtn.setOnClickListener(View -> registerForEvent(position));
+        Glide.with(context).load(eventModelList.get(position).getImageUrl()).into(holder.eventImg);
     }
 
     @Override
