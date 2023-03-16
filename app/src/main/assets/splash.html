@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    background: white;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .logo-container {
+    display: flex;
+    flex-direction: column; /* Updated */
+    align-items: center;
+  }
+
+  .logo {
+    height: 100px;
+    background-color: blue;
+    animation: grow 1.5s ease-in-out forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  @keyframes grow {
+    0% {
+      transform: scale(0.05);
+    }
+    100% {
+      transform: scale(0.6);
+    }
+  }
+
+  .title {
+    font-size: 36px;
+    font-weight: bold;
+    color: rgb(72, 147, 245);
+    opacity: 0;
+    margin-top: 80px;
+    animation: fadein 0.5s forwards 2s;
+  }
+
+  @keyframes fadein {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+    </style>
+</head>
+<body>
+<div class="logo-container">
+    <div class="logo">
+        <img src="logo.png" alt="logo">
+    </div>
+    <div class="title">
+        <img src="title.png" alt="title">
+    </div>
+</div>
+</body>
+</html>
