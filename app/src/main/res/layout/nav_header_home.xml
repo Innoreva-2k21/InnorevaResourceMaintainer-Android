@@ -9,9 +9,8 @@
         android:id="@+id/logo_img"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:layout_marginTop="48dp"
-        app:srcCompat="@drawable/ic_android_24"
-        android:tint="@color/white"
+        android:layout_marginTop="56dp"
+        app:srcCompat="@drawable/app_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -19,9 +18,9 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Innoreva"
+        android:text="Team InnoReva"
         android:textSize="24sp"
-        android:textColor="@color/white"
+        android:textColor="#09194C"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
